@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'corsheaders',
+
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -139,7 +141,6 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.FormParser',
         'rest_framework.parsers.MultiPartParser',
     ),
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 100
 }
@@ -159,6 +160,8 @@ SWAGGER_SETTINGS = {
     'DOC_EXPANSION': False
 
 }
+
+AUTH_USER_MODEL = 'user.CustomUser'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

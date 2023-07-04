@@ -4,6 +4,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 from hack.views import get_api, get_new_api
+from user.views import RegistrationView, LoginView, UserProfileView
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -20,4 +21,8 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('get-api/', get_api, name='get_api'),
     path('get-new-api/', get_new_api, name='get_new_api'),
+    path('api/register/', RegistrationView.as_view(), name='register'),
+    path('api/login/', LoginView.as_view(), name='login'),
+    path('api/profile/<int:pk>/', UserProfileView.as_view(), name='profile'),
+
 ]
